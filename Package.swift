@@ -4,20 +4,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "MyNetworkService",
+    name: "NetworkService",
     platforms: [
         .macOS(.v10_15),
         .iOS(.v13)
     ],
     products: [
         .library(
-            name: "MyNetworkService",
-            targets: ["MyNetworkService"]
+            name: "NetworkService",
+            targets: ["NetworkService"]
         ),
     ],
     targets: [
         .target(
-            name: "MyNetworkService",
+            name: "NetworkService",
             dependencies: [], path: "Sources"
         ),
     ]

@@ -2,6 +2,8 @@ import Foundation
 
 public class NetworkService {
     
+    public init() {}
+    
     public enum NetworkError: Error {
         case invalidURL
         case noData
