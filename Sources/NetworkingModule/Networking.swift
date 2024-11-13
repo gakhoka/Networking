@@ -1,6 +1,12 @@
 import Foundation
 
-public class NetworkService {
+import Foundation
+
+public protocol NetworkServiceProtocol {
+    func fetchData<T: Decodable>(urlString: String, completion: @escaping @Sendable (Result<T, NetworkService.NetworkError>) -> Void)
+}
+
+public class NetworkService: NetworkServiceProtocol {
     
     public init() {}
     
