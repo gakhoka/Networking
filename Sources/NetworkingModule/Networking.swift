@@ -17,14 +17,14 @@ public class NetworkService: NetworkServiceProtocol {
         case unknown(Error)
     }
 
-    public func fetchData<T: Decodable>(urlString: String, completion: @escaping @Sendable (Result<T, NetworkError>) -> Void) {
+    public func fetchData<T: Decodable>(urlString: String,headers: [String: String] = [:], completion: @escaping @Sendable (Result<T, NetworkError>) -> Void) {
         
         guard let url = URL(string: urlString) else {
             completion(.failure(.invalidURL))
             return
         }
         
-        var request = URLRequest(url: url)
+        var urlRequest = URLRequest(url: url)
         request.httpMethod = "GET"
         for (key, value) in headers {
             request.addValue(value, forHTTPHeaderField: key)
