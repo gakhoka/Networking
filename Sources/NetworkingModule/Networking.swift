@@ -25,9 +25,9 @@ public class NetworkService: NetworkServiceProtocol {
         }
         
         var urlRequest = URLRequest(url: url)
-        request.httpMethod = "GET"
+        urlRequest.httpMethod = "GET"
         for (key, value) in headers {
-            request.addValue(value, forHTTPHeaderField: key)
+            urlRequest.addValue(value, forHTTPHeaderField: key)
         }
 
         URLSession.shared.dataTask(with: urlRequest) { [weak self] data, response, error in
