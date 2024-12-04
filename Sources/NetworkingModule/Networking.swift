@@ -23,7 +23,12 @@ public class NetworkService: NetworkServiceProtocol {
             completion(.failure(.invalidURL))
             return
         }
-        let urlRequest = URLRequest(url: url)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        for (key, value) in headers {
+            request.addValue(value, forHTTPHeaderField: key)
+        }
 
         URLSession.shared.dataTask(with: urlRequest) { [weak self] data, response, error in
             if let error = error {
