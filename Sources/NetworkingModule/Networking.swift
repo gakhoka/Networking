@@ -1,7 +1,7 @@
 import Foundation
 
 public protocol NetworkServiceProtocol {
-    func fetchData<T: Decodable>(urlString: String,headers: [String: String] = [:], completion: @escaping @Sendable (Result<T, NetworkError>) -> Void)
+    func fetchData<T: Decodable>(urlString: String,headers: [String: String], completion: @escaping @Sendable (Result<T, NetworkError>) -> Void)
 }
 
 public class NetworkService: NetworkServiceProtocol {
